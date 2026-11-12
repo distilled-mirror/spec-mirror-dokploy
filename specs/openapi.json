@@ -1216,21 +1216,57 @@
                     ]
                   },
                   "dockerBuildStage": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "herokuVersion": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "railpackVersion": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "publishDirectory": {
@@ -2767,9 +2803,21 @@
                     ]
                   },
                   "dockerBuildStage": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "dropBuildPath": {
@@ -3232,15 +3280,39 @@
                     ]
                   },
                   "railpackVersion": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "herokuVersion": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^([a-zA-Z0-9][a-zA-Z0-9._-]*)?$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "publishDirectory": {
@@ -8911,7 +8983,8 @@
                   },
                   "composePath": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "pattern": "^[a-zA-Z0-9._@+][a-zA-Z0-9._@+/-]*$"
                   },
                   "suffix": {
                     "type": "string"
@@ -17686,7 +17759,8 @@
                     "anyOf": [
                       {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "pattern": "^(\\/[^`\\s$]*)?$"
                       },
                       {
                         "type": "null"
@@ -17768,9 +17842,14 @@
                     ]
                   },
                   "internalPath": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(\\/[^`\\s$]*)?$"
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "stripPath": {
@@ -18235,7 +18314,8 @@
                     "anyOf": [
                       {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "pattern": "^(\\/[^`\\s$]*)?$"
                       },
                       {
                         "type": "null"
@@ -18299,9 +18379,14 @@
                     ]
                   },
                   "internalPath": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(\\/[^`\\s$]*)?$"
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "stripPath": {
@@ -53704,7 +53789,8 @@
                     "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
                   },
                   "password": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 8
                   },
                   "currentPassword": {
                     "type": "string"
@@ -63676,9 +63762,6 @@
                   "cronExpression": {
                     "type": "string"
                   },
-                  "appName": {
-                    "type": "string"
-                  },
                   "serviceName": {
                     "type": [
                       "string",
@@ -63723,12 +63806,6 @@
                     ]
                   },
                   "serverId": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "organizationId": {
                     "type": [
                       "string",
                       "null"
@@ -63847,9 +63924,6 @@
                   "cronExpression": {
                     "type": "string"
                   },
-                  "appName": {
-                    "type": "string"
-                  },
                   "serviceName": {
                     "type": [
                       "string",
@@ -63894,12 +63968,6 @@
                     ]
                   },
                   "serverId": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "organizationId": {
                     "type": [
                       "string",
                       "null"
@@ -64667,13 +64735,22 @@
                       "libsql"
                     ]
                   },
-                  "appName": {
-                    "type": "string"
-                  },
                   "serviceName": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9._-]*$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "turnOff": {
@@ -65033,13 +65110,22 @@
                       "libsql"
                     ]
                   },
-                  "appName": {
-                    "type": "string"
-                  },
                   "serviceName": {
-                    "type": [
-                      "string",
-                      "null"
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9._-]*$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
                     ]
                   },
                   "turnOff": {
